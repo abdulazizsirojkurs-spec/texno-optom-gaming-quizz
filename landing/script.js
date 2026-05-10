@@ -54,10 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const BOT_TOKEN = '8202479409:AAF72_jBy-xkZOhn_t8xg7-uoG0Vl5v81_8';
         const CHAT_ID = '426689201';
         
-        const message = `🔥 Yangi mijoz (Landing Page 440$)
+        const message = `🚀 <b>YANGI BUYURTMA (LANDING PAGE)</b> 🚀
 
-👤 Ism: ${name}
-📞 Telefon: ${phone}`;
+💰 <b>Taklif:</b> 440$ Gaming PC
+👤 <b>Ism:</b> ${name}
+📞 <b>Telefon:</b> ${phone}`;
 
         fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: 'POST',
@@ -66,22 +67,19 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify({
                 chat_id: CHAT_ID,
-                text: message
+                text: message,
+                parse_mode: 'HTML'
             })
         })
         .then(response => response.json())
         .then(data => {
             submitBtn.innerHTML = 'Muvaffaqiyatli yuborildi! ✅';
             submitBtn.style.background = '#00c853';
-            submitBtn.style.boxShadow = '0 0 20px rgba(0, 200, 83, 0.4)';
-            form.reset();
             
+            // Redirect to Thank You page
             setTimeout(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = '';
-                submitBtn.style.boxShadow = '';
-                submitBtn.disabled = false;
-            }, 5000);
+                window.location.href = 'thanks.html';
+            }, 800);
         })
         .catch(error => {
             console.error('Error sending to Telegram:', error);
