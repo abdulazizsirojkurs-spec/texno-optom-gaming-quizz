@@ -1094,7 +1094,7 @@ src="https://www.facebook.com/tr?id=1519864433106629&ev=PageView&noscript=1"/></
         <input type="text" id="lead-tg" placeholder="@username" autocomplete="off">
         <div class="form-error" id="err-tg"></div>
       </div>
-      <div class="honeypot"><input type="email" id="hp-email" name="email" tabindex="-1" autocomplete="off"></div>
+      <div class="honeypot"><input type="text" id="hp-email" name="hp_field" tabindex="-1" autocomplete="new-password"></div>
       <button type="submit" class="submit-btn" id="submit-btn">Menga aniq narxni bering →</button>
       <div class="form-trust">
         <span>✓ 12 oy kafolat</span><span>✓ 1 kunda yetkazib berish</span><span>✓ Bog'lanish darhol</span>
@@ -1489,9 +1489,6 @@ function validatePhone(value) {
   if (!digits) return 'Telefon raqamingizni kiriting';
   const local = digits.startsWith('998') ? digits.substring(3) : digits;
   if (local.length !== 9) return "Telefon raqam 9 ta raqamdan iborat bo'lishi kerak";
-  const validPrefixes = ['90','91','93','94','95','97','98','99','33','88'];
-  const prefix = local.substring(0, 2);
-  if (!validPrefixes.includes(prefix)) return "Operator kodi noto'g'ri";
   return null;
 }
 
